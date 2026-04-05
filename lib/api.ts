@@ -144,12 +144,12 @@ class ApiClient {
 
   // GET /api/users/me 🔐
   async getProfile() {
-    return this.request<ApiResponse<User>>('/api/users/me');
+    return this.request<ApiResponse<User>>('/api/users/profile');
   }
 
   // PUT /api/users/me 🔐
   async updateProfile(data: { name?: string }) {
-    return this.request<ApiResponse<User>>('/api/users/me', {
+    return this.request<ApiResponse<User>>('/api/users/profile', {
       method: 'PUT',
       body: JSON.stringify(data),
     });
@@ -160,7 +160,7 @@ class ApiClient {
   async uploadProfilePicture(file: File) {
     const formData = new FormData();
     formData.append('file', file);
-    return this.request<ApiResponse<User>>('/api/users/me/picture', {
+    return this.request<ApiResponse<User>>('/api/users/profile/picture', {
       method: 'POST',
       body: formData,
     });
