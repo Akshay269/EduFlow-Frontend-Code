@@ -217,6 +217,11 @@ class ApiClient {
     return this.request<ApiResponse<Course[]>>('/api/courses/my-courses');
   }
 
+  async getCategories() {
+  return this.request<ApiResponse<string[]>>('/api/courses/categories')
+    .then(res => res.data);
+}
+
   // POST /api/courses 🔐 (INSTRUCTOR only)
   async createCourse(data: {
     title: string;

@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { api } from '@/lib/api';
 import CourseCard from './CourseCard';
+// eslint-disable-next-line no-restricted-imports
 import { FiSearch, FiFilter, FiChevronLeft, FiChevronRight, FiX } from 'react-icons/fi';
 
 interface CourseBrowsePageProps {
@@ -33,8 +34,8 @@ export default function CourseBrowsePage({ onNavigate }: CourseBrowsePageProps) 
       const response = await api.getCourses(params);
       if (response && response.data.content) {
         setCourses(response.data.content);
-        setTotalPages(response.totalPages || 0);
-        setTotalElements(response.totalElements || 0);
+        setTotalPages(response.data.totalPages || 0);
+        setTotalElements(response.data.totalElements || 0);
       } else if (Array.isArray(response)) {
         setCourses(response);
         setTotalPages(1);
