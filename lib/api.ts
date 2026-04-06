@@ -15,7 +15,7 @@ export interface User {
   name: string;
   email: string;
   role: 'STUDENT' | 'INSTRUCTOR';
-  profilePictureUrl?: string;
+  profilePicture?: string;
 }
 
 export interface AuthData {

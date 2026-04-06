@@ -82,9 +82,9 @@ export default function ProfilePage({ onNavigate }: ProfilePageProps) {
           <div className="px-6 pb-6">
             <div className="flex flex-col sm:flex-row items-start sm:items-end gap-4 -mt-12">
               <div className="relative">
-                {user.profileImageUrl ? (
+                {user.profilePicture ? (
                   <img
-                    src={user.profileImageUrl}
+                    src={user.profilePicture}
                     alt={user.name}
                     className="w-24 h-24 rounded-2xl object-cover border-4 border-white shadow-lg"
                   />
