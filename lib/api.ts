@@ -161,7 +161,7 @@ class ApiClient {
     const formData = new FormData();
     formData.append('file', file);
     return this.request<ApiResponse<User>>('/api/users/profile/picture', {
-      method: 'POST',
+      method: 'PUT',
       body: formData,
     });
   }
