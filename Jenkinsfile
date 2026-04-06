@@ -1,12 +1,10 @@
 pipeline {
     agent any
 
-    environment {
-        AWS_ACCESS_KEY_ID = "${AWS_ACCESS_KEY}"
-        AWS_SECRET_ACCESS_KEY = "${AWS_SECRET_KEY}"
-        AWS_DEFAULT_REGION = "${AWS_REGION}"
-        S3_BUCKET = "${AWS_BUCKET_NAME}"
-    }
+ environment {
+    S3_BUCKET = 'eduflow-frontend'
+    AWS_DEFAULT_REGION = 'ap-south-1'
+}
 
     stages {
 
