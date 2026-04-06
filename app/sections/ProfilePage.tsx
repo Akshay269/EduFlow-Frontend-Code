@@ -51,7 +51,7 @@ export default function ProfilePage({ onNavigate }: ProfilePageProps) {
     setUploading(true);
     setError('');
     try {
-      await api.uploadProfileImage(file);
+      await api.uploadProfilePicture(file);
       await refreshProfile();
       setSuccess('Profile picture updated');
       setTimeout(() => setSuccess(''), 3000);
