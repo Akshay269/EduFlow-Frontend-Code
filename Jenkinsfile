@@ -33,7 +33,7 @@ pipeline {
                     credentialsId: 'aws-s3-creds'
                 ]]) {
                     sh '''
-                    aws s3 sync ./out s3://$S3_BUCKET \
+                    aws s3 sync ./out s3://$S3_BUCKET/ \
                         --delete \
                         --region $AWS_REGION
                     '''
