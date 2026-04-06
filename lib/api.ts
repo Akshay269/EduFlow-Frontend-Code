@@ -1,6 +1,6 @@
 // EduFlow API Client - connects to Spring Boot REST API
 
-const API_BASE = 'https://d35qzhxh4jwgyd.cloudfront.net';
+const API_BASE = "http://65.1.160.19:8080";
 
 // ── Response wrapper from backend ──
 interface ApiResponse<T> {
