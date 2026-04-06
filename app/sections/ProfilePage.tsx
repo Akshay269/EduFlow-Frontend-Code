@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { api } from '@/lib/api';
 import { useAuth } from '@/lib/auth';
+// eslint-disable-next-line no-restricted-imports
 import { FiUser, FiMail, FiEdit2, FiUpload, FiCheck, FiX, FiAlertCircle, FiShield } from 'react-icons/fi';
 
 interface ProfilePageProps {
@@ -13,7 +14,7 @@ export default function ProfilePage({ onNavigate }: ProfilePageProps) {
   const { user, refreshProfile } = useAuth();
   const [editing, setEditing] = useState(false);
   const [name, setName] = useState('');
-  const [bio, setBio] = useState('');
+  // const [bio, setBio] = useState('');
   const [saving, setSaving] = useState(false);
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState('');
@@ -22,7 +23,7 @@ export default function ProfilePage({ onNavigate }: ProfilePageProps) {
   useEffect(() => {
     if (user) {
       setName(user.name || '');
-      setBio(user.bio || '');
+      // setBio(user.bio || '');
     }
   }, [user]);
 
@@ -32,7 +33,7 @@ export default function ProfilePage({ onNavigate }: ProfilePageProps) {
     setSuccess('');
 
     try {
-      await api.updateProfile({ name, bio });
+      await api.updateProfile({ name });
       await refreshProfile();
       setEditing(false);
       setSuccess('Profile updated successfully');
@@ -165,7 +166,7 @@ export default function ProfilePage({ onNavigate }: ProfilePageProps) {
                   {saving ? 'Saving...' : 'Save'}
                 </button>
                 <button
-                  onClick={() => { setEditing(false); setName(user.name || ''); setBio(user.bio || ''); }}
+                  onClick={() => { setEditing(false); setName(user.name || ''); }}
                   className="px-3 py-1.5 text-sm font-medium text-gray-600 border border-gray-300 rounded-lg hover:bg-gray-50 flex items-center gap-1.5"
                 >
                   <FiX className="w-3.5 h-3.5" />
@@ -195,7 +196,7 @@ export default function ProfilePage({ onNavigate }: ProfilePageProps) {
               <p className="text-gray-900">{user.email}</p>
               <p className="text-xs text-gray-400 mt-1">Email cannot be changed</p>
             </div>
-
+{/* 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1.5">Bio</label>
               {editing ? (
@@ -209,7 +210,7 @@ export default function ProfilePage({ onNavigate }: ProfilePageProps) {
               ) : (
                 <p className="text-gray-900">{user.bio || 'No bio set yet.'}</p>
               )}
-            </div>
+            </div> */}
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1.5">Role</label>
